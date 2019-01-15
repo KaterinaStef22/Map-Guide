@@ -23,31 +23,54 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBU3KXc1BddyjLcy-tS3dr4cQKQt9aHKKo" />
 
-        <activity android:name=".Activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.com.example.mapguide.mapguide.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".Activities.MainActivity">
+
+
         </activity>
         <activity android:name=".Activities.MapActivity" />
         <activity android:name=".Activities.Fullscreen" />
         <activity android:name=".Activities.TabActivity" />
         <activity android:name=".Services.GoogleSignInActivity" />
         <activity android:name=".Activities.MainMenuActivities.NetworkStatus" />
+
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Activities.MainActivity" />
+
         <activity
-            android:name=".Activities.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".Activities.MainActivity"/>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
-        <activity android:name=".Activities.MainMenuActivities.Help"
+            android:name=".Activities.MainMenuActivities.Help"
             android:label="Help"
-            android:parentActivityName=".Activities.MainActivity"/>
-        <activity android:name=".Activities.MainMenuActivities.Settings"
+            android:parentActivityName=".Activities.MainActivity" />
+
+        <activity
+            android:name=".Activities.MainMenuActivities.About"
+            android:label="About"
+            android:parentActivityName=".Activities.MainActivity" />
+
+        <activity
+            android:name=".Activities.MainMenuActivities.Settings"
             android:label="Settings"
-            android:parentActivityName=".Activities.MainActivity"/>
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity android:name=".Activities.WelcomeScreen" android:theme="@style/Theme.AppCompat.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
